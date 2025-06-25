@@ -27,7 +27,7 @@ RUN apt-get update && \
     && apt-get clean
 
 # Install Salmon
-RUN wget https://github.com/COMBINE-lab/salmon/releases/download/v1.10.2/salmon-1.10.2_linux_x86_64.tar.gz && \
+RUN wget https://github.com/COMBINE-lab/salmon/archive/refs/tags/v1.10.1.tar.gz && \
     tar -xvzf salmon-1.10.2_linux_x86_64.tar.gz && \
     mv salmon-1.10.2_linux_x86_64/bin/salmon /usr/local/bin && \
     rm -rf salmon-1.10.2_linux_x86_64*
