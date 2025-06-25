@@ -4,6 +4,13 @@ FROM ubuntu:22.04
 # Avoid interactive prompts
 ENV DEBIAN_FRONTEND=noninteractive
 
+# Fix locale warning
+RUN apt-get update && apt-get install -y locales && \
+    locale-gen en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US:en
+ENV LC_ALL=en_US.UTF-8
+
 # Install dependencies and tools
 RUN apt-get update && \
     apt-get install -y \
@@ -23,8 +30,9 @@ RUN apt-get update && \
     python3-pip \
     default-jre \
     fastqc \
-    samtools \
-    && apt-get clean
+    samtools && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install Salmon
 RUN wget https://github.com/COMBINE-lab/salmon/archive/refs/tags/v1.10.1.tar.gz && \
@@ -34,3 +42,6 @@ RUN wget https://github.com/COMBINE-lab/salmon/archive/refs/tags/v1.10.1.tar.gz 
 
 # Set default shell
 SHELL ["/bin/bash", "-c"]
+
+
+
