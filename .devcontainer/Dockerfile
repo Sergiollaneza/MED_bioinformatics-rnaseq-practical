@@ -35,6 +35,20 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+# Install fastp (precompiled binary)
+RUN wget http://opengene.org/fastp/fastp -O /usr/local/bin/fastp && \
+    chmod a+x /usr/local/bin/fastp
+
+
+# Install STAR (precompiled binary)
+RUN wget https://github.com/alexdobin/STAR/archive/refs/tags/2.7.10a.tar.gz && \
+    tar -xvzf 2.7.10a.tar.gz && \
+    cd STAR-2.7.10a/source && \
+    make STAR && \
+    cp STAR /usr/local/bin/ && \
+    cd ../.. && rm -rf STAR-2.7.10a 2.7.10a.tar.gz
+   
+
 # Install Salmon
 RUN wget https://github.com/COMBINE-lab/salmon/releases/download/v1.10.0/salmon-1.10.0_linux_x86_64.tar.gz && \
     tar -xvzf salmon-1.10.0_linux_x86_64.tar.gz && \
