@@ -26,6 +26,7 @@ RUN apt-get update && \
     liblzma-dev \
     libcurl4-openssl-dev \
     libssl-dev \
+    libtbb12 \
     python3 \
     python3-pip \
     default-jre \
