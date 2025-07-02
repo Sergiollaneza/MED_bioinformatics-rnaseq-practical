@@ -50,10 +50,10 @@ RUN wget https://github.com/alexdobin/STAR/archive/refs/tags/2.7.10a.tar.gz && \
    
 
 # Install Salmon
-RUN wget https://github.com/COMBINE-lab/salmon/archive/refs/tags/v1.10.1.tar.gz && \
-    tar -xvzf v1.10.1.tar.gz && \
-    mv salmon-1.10.1/ /usr/local/bin && \
-    rm -rf salmon-1.10.1*
+RUN wget https://github.com/COMBINE-lab/salmon/releases/download/v1.10.0/salmon-1.10.0_linux_x86_64.tar.gz && \
+    tar -xvzf salmon-1.10.0_linux_x86_64.tar.gz && \
+    mv salmon-latest_linux_x86_64/bin/salmon /usr/local/bin && \
+    rm -rf salmon-latest_linux_x86_64*
 
 # Set default shell
 SHELL ["/bin/bash", "-c"]
