@@ -55,10 +55,10 @@ RUN wget https://github.com/COMBINE-lab/salmon/releases/download/v1.10.0/salmon-
     mv salmon-latest_linux_x86_64/bin/salmon /usr/local/bin && \
     rm -rf salmon-latest_linux_x86_64*
 
-# Prepares the GTF
+# Prepares the transcriptome fasta
 RUN mkdir reference_files
 
-RUN wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_19/gencode.v19.pc_transcripts.fa.gz && \
+RUN wget ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_19/gencode.v19.pc_transcripts.fa.gz && \
     gunzip gencode.v19.pc_transcripts.fa.gz && \
     mv gencode.v19.pc_transcripts.fa  reference_files/GRCh38_transcript_reference.fa
 
