@@ -41,12 +41,12 @@ RUN wget http://opengene.org/fastp/fastp -O /usr/local/bin/fastp && \
 
 
 # Install STAR (precompiled binary)
-RUN wget https://github.com/alexdobin/STAR/archive/refs/tags/2.7.10a.tar.gz && \
-    tar -xvzf 2.7.10a.tar.gz && \
-    cd STAR-2.7.10a/source && \
-    make STAR && \
-    cp STAR /usr/local/bin/ && \
-    cd ../.. && rm -rf STAR-2.7.10a 2.7.10a.tar.gz
+#RUN wget https://github.com/alexdobin/STAR/archive/refs/tags/2.7.10a.tar.gz && \
+    #tar -xvzf 2.7.10a.tar.gz && \
+    #cd STAR-2.7.10a/source && \
+    #make STAR && \
+    #cp STAR /usr/local/bin/ && \
+    #cd ../.. && rm -rf STAR-2.7.10a 2.7.10a.tar.gz
    
 
 # Install Salmon
