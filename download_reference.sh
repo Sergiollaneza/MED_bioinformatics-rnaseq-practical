@@ -1,14 +1,12 @@
 #!/bin/bash
 
-# Create reference directory
-mkdir -p reference_genome && cd reference_genome
+mkdir -p reference_files && \
+    wget -nv https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_19/gencode.v19.pc_transcripts.fa.gz && \
+    gunzip gencode.v19.pc_transcripts.fa.gz && \
+    mv gencode.v19.pc_transcripts.fa reference_files/GRCh38_transcript_reference.fa 
 
-# Download GRCh37 FASTA and GTF
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.13_GRCh37/GCF_000001405.13_GRCh37_genomic.fna.gz
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.13_GRCh37/GCF_000001405.13_GRCh37_genomic.gtf.gz
-
-gunzip GCF_000001405.13_GRCh37_genomic.fna.gz
-gunzip GCF_000001405.13_GRCh37_genomic.gtf.gz
-
-mv GCF_000001405.13_GRCh37_genomic.fna GRCh37_reference.fa
-mv GCF_000001405.13_GRCh37_genomic.gtf GRCh37_reference.gtf
+    wget -nv https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_19/gencode.v19.annotation.gtf.gz && \
+    gunzip gencode.v19.annotation.gtf.gz && \
+    mv gencode.v19.annotation.gtf reference_files/GRCh38_transcript_annotation.gtf && \
+    echo "Files in /reference_files:" && \
+    ls -lh reference_files
