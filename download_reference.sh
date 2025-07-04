@@ -10,3 +10,5 @@ wget -nv https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_19/ge
     mv gencode.v19.annotation.gtf reference_files/GRCh38_transcript_annotation.gtf && \
     echo "Files in /reference_files:" && \
     ls -lh reference_files
+
+salmon index -t reference_files/gencode.v19.pc_transcripts.fa -i reference_files/salmon_index --gencode -k 9
